@@ -36,3 +36,33 @@ describe ('Gameboard', () => {
         expect(gameboard.allShipsSunk()).toBe(true);
     });
 });
+
+describe('Ship placement validation', () => {
+    let gameboard;
+
+    beforeEach(() => {
+        gameboard = Gameboard();
+    });
+
+    test('prevents placing ship out of bounds horizontally', () => {
+        const ship = Ship(4);
+        expect(gameboard.isValidPlacement(ship, [7, 0], 'horizontal')).toBe(false);
+    });
+
+    test('prevents placing ship out of bounds vertically', () => {
+        const ship = Ship(4);
+        expect(gameboard.isValidPlacement(ship, [0, 7], 'vertical')).toBe(false);
+    });
+
+    test('prevents placing ships on top of each other', () => {
+        const ship1 = Ship(3);
+        const ship2 = Ship(3);
+        gameboard.placeShip(ship1, [0, 0], 'horizontal');
+        expect(gameboard.isValidPlacement(ship2, [1, 0], 'horizontal')).toBe(false);
+    });
+
+    test('allows valid ship placement', () => {
+        const ship = Ship(3);
+        expect(gameboard.isValidPlacement(ship, [0, 0], 'horizontal')).toBe(true);
+    });
+});
