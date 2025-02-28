@@ -11,4 +11,4 @@ const Ship = (length) => {
     };
 };
 
-module.exports = Ship;
+export default Ship;

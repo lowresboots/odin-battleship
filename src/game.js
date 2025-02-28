@@ -1,4 +1,4 @@
-const Player = require('./player');
+import Player from './player';
 
 const Game = () => {
     const humanPlayer = Player('human');
@@ -42,4 +42,4 @@ const Game = () => {
     };
 };
 
-module.exports = Game;
+export default Game;
