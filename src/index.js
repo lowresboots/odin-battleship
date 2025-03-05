@@ -95,8 +95,12 @@ function setupEnemyBoardHandlers(game, enemyBoardElement, playerBoardElement) {
             renderEnemyBoard(game, enemyBoardElement);
 
             if (game.isGameOver()) {
-                const winner = game.getWinner();
-                alert(winner === game.getHumanPlayer() ? 'You win!' : 'Computer wins!');
+                // Fix: Check specifically which condition triggered game over
+                if (game.getComputerPlayer().gameboard.allShipsSunk()) {
+                    alert('You win! All enemy ships have been sunk!');
+                } else {
+                    alert('Computer wins! Your fleet has been destroyed!');
+                }
             }
         } catch (error) {
             console.error('Invalid move:', error);
