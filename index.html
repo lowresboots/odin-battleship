@@ -11,8 +11,13 @@
   <div id="game-container">
     <div id="placement-screen">
       <h2>Place Your Ships</h2>
-      <div id="placement-board" class="board"></div>
+      <div class="placement-container">
+        <div class="ship-dock" id="ship-dock">
+        </div>
+        <div id="placement-board" class="board"></div>
+      </div>
       <div class="controls">
+        <button id="rotate-btn">Rotate Ship</button>
         <button id="random-placement-btn">Random Placement</button>
         <button id="start-game-btn">Start Game</button>
       </div>
