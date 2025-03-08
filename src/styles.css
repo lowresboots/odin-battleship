@@ -60,6 +60,7 @@
     margin-bottom: 10px;
   }
 
+/* Add or modify these styles in your styles.css */
 .hidden {
   display: none;
 }
@@ -84,40 +85,18 @@ button:hover {
   background-color: #55f;
 }
 
-.placement-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px 0;
+button:disabled {
+  background-color: #777;
+  cursor: not-allowed;
 }
 
-.ship-dock {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 15px;
-  background-color: #555;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  min-height: 60px;
-  min-width: 300px;
-}
-
-.ship-item {
-  display: flex;
-  cursor: grab;
-  margin: 5px;
-}
-
-.ship-item.vertical {
-  flex-direction: column;
-}
-
-.ship-segment {
+.cell {
   width: 30px;
   height: 30px;
-  background-color: #44f;
-  border: 1px solid #fff;
+  background-color: #224;
+  border: 1px solid #447;
+  cursor: pointer;
+  position: relative;
 }
 
 .placement-hover {
@@ -128,7 +107,21 @@ button:hover {
   background-color: rgba(255, 68, 68, 0.3);
 }
 
-#start-game-btn:disabled {
-  background-color: #777;
-  cursor: not-allowed;
+.ship-cell {
+  background-color: #44f;
+}
+
+.hit {
+  background-color: #f44;
+  position: relative;
+}
+
+.miss {
+  background-color: #4f4;
+  position: relative;
+}
+
+#placement-instructions {
+  margin-bottom: 20px;
+  text-align: center;
 }
