@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BattleBoot</title>
+  <title>Battleship</title>
 </head>
 
 <body>
   <div id="game-container">
+    <!-- Placement Screen -->
     <div id="placement-screen">
       <h2 id="placement-instructions">Place your Carrier</h2>
       <div id="placement-board" class="board"></div>
@@ -17,18 +18,32 @@
         <button id="random-placement-btn">Random Placement</button>
         <button id="confirm-yes-btn" class="hidden">Yes</button>
         <button id="confirm-no-btn" class="hidden">No</button>
-        <button id="start-game-btn" class="hidden">Start Game</button>
       </div>
     </div>
+
+    <!-- Game Screen - Initially Hidden -->
     <div id="game-screen" class="hidden">
-      <div id="boards-container">
-        <div>
-          <h2>Your Board</h2>
-          <div id="player-board" class="board"></div>
+      <div class="game-boards-container">
+        <div class="player-section">
+          <div class="player-fleet">
+            <h3>Your Fleet</h3>
+            <ul id="player-fleet-list" class="fleet-list"></ul>
+          </div>
+          <div class="board-container">
+            <h2>Your Board</h2>
+            <div id="player-board" class="board"></div>
+          </div>
         </div>
-        <div>
-          <h2>Enemy Board</h2>
-          <div id="enemy-board" class="board"></div>
+        
+        <div class="enemy-section">
+          <div class="board-container">
+            <h2>Enemy Board</h2>
+            <div id="enemy-board" class="board"></div>
+          </div>
+          <div class="enemy-fleet">
+            <h3>Enemy Fleet</h3>
+            <ul id="enemy-fleet-list" class="fleet-list"></ul>
+          </div>
         </div>
       </div>
     </div>
