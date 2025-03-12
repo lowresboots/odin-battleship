@@ -36,6 +36,10 @@ function initPlacementScreen() {
   document.getElementById('placement-screen').classList.remove('hidden');
   document.getElementById('game-screen').classList.add('hidden');
   
+  // Remove any existing "Play Again" buttons
+  const existingPlayAgainButtons = document.querySelectorAll('.play-again-btn');
+  existingPlayAgainButtons.forEach(button => button.remove());
+  
   // Reset game state
   game = Game();
   currentShipIndex = 0;
@@ -520,11 +524,16 @@ function setupEnemyBoardHandlers(enemyBoardElement, playerBoardElement) {
           alert('Computer wins! Your fleet has been destroyed!');
         }
         
-        // Optional: Add a "Play Again" button
+        // Remove any existing Play Again buttons first
+        const existingButtons = document.querySelectorAll('.play-again-btn');
+        existingButtons.forEach(btn => btn.remove());
+        
+        // Add a "Play Again" button
         const playAgainBtn = document.createElement('button');
         playAgainBtn.textContent = 'Play Again';
         playAgainBtn.style.margin = '20px auto';
         playAgainBtn.style.display = 'block';
+        playAgainBtn.classList.add('play-again-btn'); // Add class for easy selection
         playAgainBtn.addEventListener('click', initPlacementScreen);
         document.getElementById('game-screen').appendChild(playAgainBtn);
       }
